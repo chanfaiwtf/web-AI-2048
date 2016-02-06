@@ -1,0 +1,238 @@
+body {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  background: #faf8ef;
+  color: #776e65;
+  padding: 40px;
+}
+
+.grid-row {
+  margin-bottom: 15px;
+}
+.grid-row:last-child {
+  margin-bottom: 0;
+}
+.grid-row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.grid-cell {
+  width: 120px;
+  height: 120px;
+  margin-right: 15px;
+  border-radius: 15px;
+  float: left;
+}
+.grid-cell:last-child {
+  margin-right: 0;
+}
+
+
+.tile {
+}
+
+.tile-new {
+  animation: new 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes new {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+tile:hover {
+  animation: test 0.7s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes test {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  .tile-0{
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    background: #f3eee3;
+    font-size: 55px;
+  }
+  .tile-2 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    background: #eee4da;
+    font-size: 55px;
+  }
+  .tile-4 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    background: #ede0c8;
+    font-size: 55px;
+  }
+  .tile-8 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #f2b179;
+    font-size: 55px;
+  }
+  .tile-16 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #f59563;
+    font-size: 55px;
+  }
+  .tile-32 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #f67c5f;
+    font-size: 55px;
+  }
+  .tile-64 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #f65e3b;
+    font-size: 55px;
+  }
+  .tile-128 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #edcf72;
+    font-size: 45px;
+  }
+  .tile-256 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #edcc61;
+    font-size: 45px;
+  }
+  .tile-512 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #edc850;
+    font-size: 45px;
+  }
+  .tile-1024 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #edc53f;
+    font-size: 35px;
+  }
+  .tile-2048 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #edc22e;
+    font-size: 35px;
+  }
+  .tile-4096 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #fd8f2d;
+    font-size: 35px;
+  }
+  .tile-8192 {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #fe4444;
+    font-size: 35px;
+  }
+  .tile-super {
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    width: 120px;
+    height: 120px;
+    line-height: 210%;
+    color: #f9f6f2;
+    background: #444444;
+    font-size: 30px;
+  }
