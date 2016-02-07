@@ -147,7 +147,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 270%;
     color: #f9f6f2;
     background: #edcf72;
     font-size: 45px;
@@ -159,7 +159,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 270%;
     color: #f9f6f2;
     background: #edcc61;
     font-size: 45px;
@@ -171,7 +171,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 270%;
     color: #f9f6f2;
     background: #edc850;
     font-size: 45px;
@@ -183,7 +183,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 340%;
     color: #f9f6f2;
     background: #edc53f;
     font-size: 35px;
@@ -195,7 +195,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 340%;
     color: #f9f6f2;
     background: #edc22e;
     font-size: 35px;
@@ -207,7 +207,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 340%;
     color: #f9f6f2;
     background: #fd8f2d;
     font-size: 35px;
@@ -219,7 +219,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 340%;
     color: #f9f6f2;
     background: #fe4444;
     font-size: 35px;
@@ -231,7 +231,7 @@ tile:hover {
     z-index: 10;
     width: 120px;
     height: 120px;
-    line-height: 210%;
+    line-height: 400%;
     color: #f9f6f2;
     background: #444444;
     font-size: 30px;
