@@ -68,23 +68,23 @@ function down(t, j) {
     }
 }
 
-function left_combine(a, i) {
-  var len = a[i].length;
+function left_combine(t, i) {
+  var len = t[i].length;
   var now = 0;
   var nxt = 1;
   while (now <= len-2) {
-    if (a[i][now] == 0 || nxt == len) {
+    if (t[i][now] == 0 || nxt == len) {
       now ++;
       nxt = now+1;
       continue;
     }
-    if (a[i][nxt] == 0) {
+    if (t[i][nxt] == 0) {
       nxt ++;
       continue;
     }
-    if (a[i][now] == a[i][nxt]) {
-      a[i][now] *= 2;
-      a[i][nxt] = 0;
+    if (t[i][now] == t[i][nxt]) {
+      t[i][now] *= 2;
+      t[i][nxt] = 0;
       now = nxt+1;
       nxt = now+1;
       ismove = true;
@@ -95,26 +95,26 @@ function left_combine(a, i) {
       nxt = now+1;
     }
   }
-  left(a, i);
+  left(t, i);
 }
 
-function right_combine(a, i) {
-  var len = a[i].length;
+function right_combine(t, i) {
+  var len = t[i].length;
   var now = len-1;
   var nxt = len-2;
   while (now >= 1) {
-    if (a[i][now] == 0 || nxt == -1) {
+    if (t[i][now] == 0 || nxt == -1) {
       now --;
       nxt = now-1;
       continue;
     }
-    if (a[i][nxt] == 0) {
+    if (t[i][nxt] == 0) {
       nxt --;
       continue;
     }
-    if (a[i][now] == a[i][nxt]) {
-      a[i][now] *= 2;
-      a[i][nxt] = 0;
+    if (t[i][now] == t[i][nxt]) {
+      t[i][now] *= 2;
+      t[i][nxt] = 0;
       now = nxt-1;
       nxt = now-1;
       ismove = true;
@@ -125,26 +125,26 @@ function right_combine(a, i) {
       nxt = now-1;
     }
   }
-  right(a, i);
+  right(t, i);
 }
 
-function up_combine(a, j) {
-  var len = a.length;
+function up_combine(t, j) {
+  var len = t.length;
   var now = 0;
   var nxt = 1;
   while (now <= len-2) {
-    if (a[now][j] == 0 || nxt == len) {
+    if (t[now][j] == 0 || nxt == len) {
       now ++;
       nxt = now+1;
       continue;
     }
-    if (a[nxt][j] == 0) {
+    if (t[nxt][j] == 0) {
       nxt ++;
       continue;
     }
-    if (a[now][j] == a[nxt][j]) {
-      a[now][j] *= 2;
-      a[nxt][j] = 0;
+    if (t[now][j] == t[nxt][j]) {
+      t[now][j] *= 2;
+      t[nxt][j] = 0;
       now = nxt+1;
       nxt = now+1;
       ismove = true;
@@ -155,26 +155,26 @@ function up_combine(a, j) {
       nxt = now+1;
     }
   }
-  up(a, j);
+  up(t, j);
 }
 
-function down_combine(a, j) {
-  var len = a.length;
+function down_combine(t, j) {
+  var len = t.length;
   var now = len-1;
   var nxt = len-2;
   while (now >= 1) {
-    if (a[now][j] == 0 || nxt == -1) {
+    if (t[now][j] == 0 || nxt == -1) {
       now --;
       nxt = now-1;
       continue;
     }
-    if (a[nxt][j] == 0) {
+    if (t[nxt][j] == 0) {
       nxt --;
       continue;
     }
-    if (a[now][j] == a[nxt][j]) {
-      a[now][j] *= 2;
-      a[nxt][j] = 0;
+    if (t[now][j] == t[nxt][j]) {
+      t[now][j] *= 2;
+      t[nxt][j] = 0;
       now = nxt-1;
       nxt = now-1;
       ismove = true;
@@ -185,25 +185,27 @@ function down_combine(a, j) {
       nxt = now-1;
     }
   }
-  down(a, j);
+  down(t, j);
 }
 
-function check(a) {
+function check(t) {
   for (var i = 0; i < s; i ++)
     for (var j = 0; j < s; j ++)
-      if (a[i][j] == 0)
+      if (t[i][j] == 0)
         return true;
   isnew = false;
   return false;
 }
 
-function addnew() {
-  while (check(a) == true) {
+function addnew(t) {
+  while (check(t) == true) {
     pos = Math.floor(Math.random()*16);
     var i = Math.floor(pos/s);
     var j = Math.floor(pos%s);
-    if (a[i][j] == 0) {
-      a[i][j] = Math.floor(Math.random()*2 + 1) * 2;
+    var rand = Math.round(Math.random()*9);
+    if (t[i][j] == 0) {
+      if (rand <= 2) t[i][j] = 4;
+      else t[i][j] = 2;
       newx = i;
       newy = j;
       isnew = true;
@@ -212,51 +214,68 @@ function addnew() {
   }
 }
 
-function left_go() {
+function left_go(t) {
   ismove = false;
   for (var i = 0; i < s; i ++) {
-    left(a, i);
+    left(t, i);
   }
   for (var i = 0; i < s; i ++)
-    left_combine(a, i);
+    left_combine(t, i);
   if (ismove == true)
-    addnew();
-  display_div(a);
+    addnew(t);
 }
 
-function up_go() {
+function up_go(t) {
   ismove = false;
   for (var j = 0; j < s; j ++) {
-    up(a, j);
+    up(t, j);
   }
   for (var j = 0; j < s; j ++)
-    up_combine(a, j);
+    up_combine(t, j);
   if (ismove == true)
-    addnew();
-  display_div(a);
+    addnew(t);
 }
 
-function right_go() {
+function right_go(t) {
   ismove = false;
   for (var i = 0; i < s; i ++) {
-    right(a, i);
+    right(t, i);
   }
   for (var i = 0; i < s; i ++)
-    right_combine(a, i);
+    right_combine(t, i);
   if (ismove == true)
-    addnew();
+    addnew(t);
+}
+
+function down_go(t) {
+  ismove = false;
+  for (var j = 0; j < s; j ++) {
+    down(t, j);
+  }
+  for (var j = 0; j < s; j ++)
+    down_combine(t, j);
+  if (ismove == true)
+    addnew(t);
+}
+
+
+function left_ai(a) {
+  left_go(a);
   display_div(a);
 }
 
-function down_go() {
-  ismove = false;
-  for (var j = 0; j < s; j ++) {
-    down(a, j);
-  }
-  for (var j = 0; j < s; j ++)
-    down_combine(a, j);
-  if (ismove == true)
-    addnew();
+function up_ai(a) {
+  up_go(a);
+  display_div(a);
+}
+
+function right_ai(a) {
+  right_go(a);
+  display_div(a);
+}
+
+function down_ai(a) {
+  down_go(a);
   display_div(a);
 }
 
@@ -265,16 +284,20 @@ $(document).ready(function() {
   $(document).keyup(function(key_in) {
     console.log(key_in.keyCode);
     if (key_in.keyCode == 37) {
-      left_go();
+      left_go(a);
+      display_div(a);
     }
     if (key_in.keyCode == 38) {
-      up_go();
+      up_go(a);
+      display_div(a);
     }
     if (key_in.keyCode == 39) {
-      right_go();
+      right_go(a);
+      display_div(a);
     }
     if (key_in.keyCode == 40) {
-      down_go();
+      down_go(a);
+      display_div(a);
     }
   });
 });
